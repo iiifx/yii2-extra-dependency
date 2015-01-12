@@ -39,7 +39,7 @@ new DbTimestampDependency( [
         UserProfile::tableName(),
         UserImage::tableName(),
     ]
-] ) ) );
+] );
 ```
 
 И переопределить имена полей, которые установлены по умолчанию как 'date_created' и 'date_edited':
@@ -47,7 +47,7 @@ new DbTimestampDependency( [
 new DbTimestampDependency( [
     'table'   => User::tableName(),
     'timestamp' => [ 'created', 'edited', 'deleted' ]
-] ) ) );
+] );
 ```
 
 Объект формирует такой запрос:
