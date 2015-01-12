@@ -1,0 +1,17 @@
+{
+    "name": "iiifx/yii2-extra-dependency",
+    "type": "yii2-extension",
+    "description": "Extra dependencies for Yii2",
+    "keywords": ["yii2","cache","dependency"],
+    "homepage": "https://github.com/iiifx/yii2-extra-dependency.git",
+    "license": "BSD-3-Clause",
+    "authors": [
+        { "name": "Vitaliy IIIFX Khomenko", "email": "iiifx@yandex.com" }
+    ],
+    "require": {
+        "yiisoft/yii2": "*"
+    },
+    "autoload": {
+        "psr-4": { "iiifx\\caching\\extra\\": "source/" }
+    }
+}
