@@ -42,17 +42,15 @@ class DbTimestampDependency extends DbDependency {
             }
             $this->queryParts[] = 'SELECT';
             foreach ( $this->tableList as $tableName ) {
+                $this->queryParts[] = '( SELECT CONCAT( ';
                 foreach ( $this->timestamp as $fieldName ) {
                     $this->queryParts[] = "MAX( {$tableName}.{$fieldName} ),";
                 }
+                $this->removeLastPartComma( $this->queryParts );
+                $this->queryParts[] = ") FROM {$tableName} ) {$tableName},";
             }
             $this->removeLastPartComma( $this->queryParts );
-            $this->queryParts[] = 'FROM';
-            foreach ( $this->tableList as $tableName ) {
-                $this->queryParts[] = "{$tableName},";
-            }
-            $this->removeLastPartComma( $this->queryParts );
-            return implode( ' ', $this->queryParts );
+            return implode( '', $this->queryParts );
         }
         return NULL;
     }
